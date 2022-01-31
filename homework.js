@@ -49,7 +49,7 @@ function isEven(number) {
 // temperature in Celsius.
 function fahrenheitToCelsius(tempF) {
     let tempC = ((tempF - 32)*5)/9;
-    console.log(tempC);
+    // console.log(tempC);
     return tempC;
 }
 
@@ -104,12 +104,25 @@ function multigreeting (name, langCode) {
             break;
         case 'fr':
             return 'Bonjour, ' + name + '!';
-            break;
+            // break;
         case 'eo':
             return 'Saluton, ' + name + '!';
-            break;
     }
 }
+
+// function multigreeting (name, langCode) {
+//     if (langCode === 'en') {
+//         return 'Hello, ' + name + '!';
+//     } else if (langCode === 'es'){
+//         return '¡Hola, ' + name + '!';
+//     } else if (langCode === 'fr') {
+//         return 'Bonjour, ' + name + '!';
+//     } else if (langCode === 'eo') {
+//         return 'Saluton, ' + name + '!';
+//     } else {
+//         // return null;
+//     }
+// }
 
 // 11. The greatest common divisor (https://en.wikipedia.org/wiki/Greatest_common_divisor)
 // is the largest integer that, given two other integers, can be divided into them. For
@@ -137,3 +150,33 @@ function multigreeting (name, langCode) {
 
 // Write a function called gcd that takes two arguments and returns the greatest common
 // divisor using the instructions above.
+function gcd(num1, num2) {
+    let a = num1
+    let b = num2
+    let d = 0
+
+    while (isEven(a) && isEven(b)) {
+        a = a/2
+        b = b/2
+        d = d+1
+    }
+
+    while (a != b) {
+        if (isEven(a)) {
+            a = a/2
+        } else if (isEven(b)) {
+            b = b/2
+        } else if (a>b) {
+            a = (a-b)/2
+        } else {
+            b = (b-a)/2
+        }
+    }
+
+    let g = a
+    return g * 2**d
+}
+
+
+
+
